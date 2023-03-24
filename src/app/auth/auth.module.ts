@@ -11,6 +11,7 @@ import {authReducer} from 'src/app/auth/store/reducers'
 import {AuthService} from 'src/app/auth/services/auth.service'
 import {EffectsModule} from '@ngrx/effects'
 import {RegisterEffect} from 'src/app/auth/store/effects/register.effect'
+import {BackendErrorsModule} from 'src/app/shared/modules/backend-errors/backend-errors.module'
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, AuthComponent],
@@ -19,6 +20,7 @@ import {RegisterEffect} from 'src/app/auth/store/effects/register.effect'
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BackendErrorsModule,
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([RegisterEffect]),
   ],

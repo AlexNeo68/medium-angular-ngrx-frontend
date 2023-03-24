@@ -8,8 +8,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import {StoreModule} from '@ngrx/store'
 import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 
-import {HttpClientModule} from '@angular/common/http';
-import { EffectsModule } from '@ngrx/effects'
+import {HttpClientModule} from '@angular/common/http'
+import {EffectsModule} from '@ngrx/effects'
 
 @NgModule({
   declarations: [AppComponent],
