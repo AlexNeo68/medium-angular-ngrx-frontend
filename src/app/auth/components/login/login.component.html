@@ -1,1 +1,35 @@
-<p>login works!</p>
+<h1>Авторизоваться</h1>
+
+<app-backend-errors *ngIf="validationErrors$ | async" [backendErrors]="validationErrors$ | async" />
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+  <div class="row mb-3">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+      />
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="password"
+      />
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-success" [disabled]="isSubmitting$ | async">
+      Submit
+    </button>
+  </div>
+</form>
