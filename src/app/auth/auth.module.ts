@@ -14,6 +14,7 @@ import {RegisterEffect} from 'src/app/auth/store/effects/register.effect'
 import {BackendErrorsModule} from 'src/app/shared/modules/backend-errors/backend-errors.module'
 import {PersistanceService} from 'src/app/shared/services/persistance.service'
 import {LoginEffect} from 'src/app/auth/store/effects/login.effect'
+import {GetCurrentUserEffect} from 'src/app/auth/store/effects/get-current-user.effect'
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, AuthComponent],
@@ -24,7 +25,11 @@ import {LoginEffect} from 'src/app/auth/store/effects/login.effect'
     ReactiveFormsModule,
     BackendErrorsModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      LoginEffect,
+      GetCurrentUserEffect,
+    ]),
   ],
   providers: [AuthService, PersistanceService],
 })

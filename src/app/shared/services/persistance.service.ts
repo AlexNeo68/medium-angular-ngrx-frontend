@@ -12,7 +12,7 @@ export class PersistanceService {
 
   get(key: string): any {
     try {
-      window.localStorage.getItem(key)
+      return window.localStorage.getItem(key)
     } catch (error) {
       console.log('Persistance get error', error)
     }
