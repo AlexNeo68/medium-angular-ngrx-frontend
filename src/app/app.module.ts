@@ -8,9 +8,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import {StoreModule} from '@ngrx/store'
 import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import {EffectsModule} from '@ngrx/effects'
 import {TopBarModule} from 'src/app/shared/modules/top-bar/top-bar.module'
+import {PersistanceService} from 'src/app/shared/services/persistance.service'
+import {AccessTokenInterceptor} from 'src/app/shared/interceptors/access-token.interceptor'
+import {GlobalFeedModule} from 'src/app/global-feed/global-feed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,8 +27,16 @@ import {TopBarModule} from 'src/app/shared/modules/top-bar/top-bar.module'
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     EffectsModule.forRoot([]),
     TopBarModule,
+    GlobalFeedModule,
   ],
-  providers: [],
+  providers: [
+    PersistanceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AccessTokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

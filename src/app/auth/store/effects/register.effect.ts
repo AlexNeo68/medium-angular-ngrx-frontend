@@ -27,7 +27,7 @@ export class RegisterEffect {
       exhaustMap(({request}) => {
         return this.authService.register(request).pipe(
           map((currentUser: CurrentUserInterface) => {
-            this.persistanceService.set('accessToken', currentUser.token)
+            this.persistanceService.setToken(currentUser.token)
             return registerActionSuccess({currentUser})
           }),
           catchError((error: HttpErrorResponse) =>

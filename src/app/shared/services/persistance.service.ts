@@ -4,7 +4,15 @@ import {Injectable} from '@angular/core'
 export class PersistanceService {
   set(key: string, data: any): void {
     try {
-      window.localStorage.setItem(key, JSON.stringify(data))
+      localStorage.setItem(key, JSON.stringify(data))
+    } catch (error) {
+      console.log('Persistance set error', error)
+    }
+  }
+
+  setToken(token: string) {
+    try {
+      localStorage.setItem('accessToken', token)
     } catch (error) {
       console.log('Persistance set error', error)
     }
@@ -12,7 +20,7 @@ export class PersistanceService {
 
   get(key: string): any {
     try {
-      return window.localStorage.getItem(key)
+      return localStorage.getItem(key)
     } catch (error) {
       console.log('Persistance get error', error)
     }
