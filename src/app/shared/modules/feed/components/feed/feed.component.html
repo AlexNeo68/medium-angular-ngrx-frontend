@@ -1,1 +1,46 @@
-<p>feed works!</p>
+<app-loading *ngIf="isLoading$ | async"></app-loading>
+<app-error-message *ngIf="error$ | async"></app-error-message>
+<div *ngIf="data$ | async">
+  <div class="feed">
+    <div class="card mb-4" *ngFor="let article of (data$ | async)?.articles">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">
+            <img
+              [src]="article.author.image"
+              class="card-img-left"
+              [alt]="article.author.username"
+            />
+          </div>
+          <div class="col-md-9">
+            <div class="feed-author">
+              <a [routerLink]="['/profile', article.author.username]">{{
+                article.author.username
+              }}</a>
+              <div class="feed-data">
+                {{ article.createdAt | date : 'longDate' : 'ru_RU' }}
+              </div>
+            </div>
+            <div class="card-text">
+              <a [routerLink]="['/articles', article.slug]">{{
+                article.title
+              }}</a>
+              <p>{{ article.description }}</p>
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="feed-favorited">FAVORITED</div>
+          </div>
+        </div>
+
+        <div class="feed-favorited">TAGS</div>
+      </div>
+    </div>
+  </div>
+  <app-pagination
+    [currentPage]="currentPage"
+    [limit]="limit"
+    [url]="baseUrl"
+    [total]="(data$ | async).articlesCount"
+  ></app-pagination>
+</div>

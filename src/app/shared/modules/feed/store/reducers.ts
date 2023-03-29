@@ -1,3 +1,4 @@
+import {routerNavigationAction} from '@ngrx/router-store'
 import {createReducer, on} from '@ngrx/store'
 import {
   getFeedAction,
@@ -26,5 +27,6 @@ export const reducer = createReducer(
   on(getFeedFailureAction, (state) => ({
     ...state,
     isLoading: false,
-  }))
+  })),
+  on(routerNavigationAction, (state) => initialState)
 )

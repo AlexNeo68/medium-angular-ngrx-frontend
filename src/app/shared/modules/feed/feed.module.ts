@@ -6,6 +6,10 @@ import {EffectsModule} from '@ngrx/effects'
 import {GetFeedEffect} from 'src/app/shared/modules/feed/store/effects/get-feed.effects'
 import {StoreModule} from '@ngrx/store'
 import {reducer} from 'src/app/shared/modules/feed/store/reducers'
+import {RouterModule} from '@angular/router'
+import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
+import {ErrorMessageModule} from 'src/app/shared/modules/error-message/error-message.module'
+import {PaginationModule} from 'src/app/shared/modules/pagination/pagination.module'
 
 @NgModule({
   declarations: [FeedComponent],
@@ -13,6 +17,10 @@ import {reducer} from 'src/app/shared/modules/feed/store/reducers'
     CommonModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed', reducer),
+    RouterModule,
+    LoadingModule,
+    ErrorMessageModule,
+    PaginationModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
