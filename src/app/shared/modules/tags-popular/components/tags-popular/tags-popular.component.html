@@ -1,0 +1,10 @@
+<app-loading *ngIf="isLoading$ | async"></app-loading>
+<app-error-message *ngIf="error$ | async"></app-error-message>
+<h4>Popular Tags</h4>
+<div class="tags-popular d-flex gap-2 flex-wrap" *ngIf="data$ | async">
+  <span
+    class="badge rounded-pill text-bg-primary"
+    *ngFor="let tag of data$ | async"
+    >{{ tag }}</span
+  >
+</div>
