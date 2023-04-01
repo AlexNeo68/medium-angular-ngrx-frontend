@@ -47,6 +47,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
     const isNewSlug =
       changes['apiUrlProps'].currentValue !== changes['previousValue']
     if (isNewSlug && !changes['apiUrlProps'].firstChange) {
+      this.baseUrl = this.router.url.split('?')[0]
       this.fetchFeed()
     }
   }
