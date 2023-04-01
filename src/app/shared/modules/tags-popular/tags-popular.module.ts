@@ -8,6 +8,7 @@ import {tagsPopularReducer} from 'src/app/shared/modules/tags-popular/store/redu
 import {TagsPopularService} from 'src/app/shared/modules/tags-popular/services/tags-popular.service'
 import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
 import {ErrorMessageModule} from 'src/app/shared/modules/error-message/error-message.module'
+import {RouterModule} from '@angular/router'
 
 @NgModule({
   declarations: [TagsPopularComponent],
@@ -15,6 +16,7 @@ import {ErrorMessageModule} from 'src/app/shared/modules/error-message/error-mes
     CommonModule,
     EffectsModule.forFeature([GetTagPopularEffect]),
     StoreModule.forFeature('tagsPopular', tagsPopularReducer),
+    RouterModule,
     LoadingModule,
     ErrorMessageModule,
   ],

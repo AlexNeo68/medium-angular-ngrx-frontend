@@ -15,6 +15,8 @@ import {PersistanceService} from 'src/app/shared/services/persistance.service'
 import {AccessTokenInterceptor} from 'src/app/shared/interceptors/access-token.interceptor'
 import {GlobalFeedModule} from 'src/app/global-feed/global-feed.module'
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
+import {YourFeedModule} from 'src/app/your-feed/your-feed.module'
+import {TagFeedModule} from 'src/app/tag-feed/tag-feed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +31,8 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
     StoreRouterConnectingModule.forRoot(),
   ],
   providers: [

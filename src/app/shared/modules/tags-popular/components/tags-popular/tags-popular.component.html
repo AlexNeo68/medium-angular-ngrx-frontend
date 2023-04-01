@@ -2,9 +2,10 @@
 <app-error-message *ngIf="error$ | async"></app-error-message>
 <h4>Popular Tags</h4>
 <div class="tags-popular d-flex gap-2 flex-wrap" *ngIf="data$ | async">
-  <span
+  <a
     class="badge rounded-pill text-bg-primary"
+    [routerLink]="['/tags', tag]"
     *ngFor="let tag of data$ | async"
-    >{{ tag }}</span
+    >{{ tag }}</a
   >
 </div>

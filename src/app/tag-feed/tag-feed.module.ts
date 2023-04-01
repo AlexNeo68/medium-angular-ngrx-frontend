@@ -1,22 +1,22 @@
 import {NgModule} from '@angular/core'
 import {CommonModule} from '@angular/common'
 
-import {GlobalFeedRoutingModule} from './global-feed-routing.module'
-import {GlobalFeedComponent} from './components/global-feed/global-feed.component'
-import {FeedModule} from 'src/app/shared/modules/feed/feed.module'
+import {TagFeedRoutingModule} from './tag-feed-routing.module'
+import {TagFeedComponent} from './components/tag-feed/tag-feed.component'
 import {BannerModule} from 'src/app/shared/modules/banner/banner.module'
 import {TagsPopularModule} from 'src/app/shared/modules/tags-popular/tags-popular.module'
+import {FeedModule} from 'src/app/shared/modules/feed/feed.module'
 import {FeedTogglerModule} from 'src/app/shared/modules/feed-toggler/feed-toggler.module'
 
 @NgModule({
-  declarations: [GlobalFeedComponent],
+  declarations: [TagFeedComponent],
   imports: [
     CommonModule,
-    GlobalFeedRoutingModule,
-    FeedModule,
+    TagFeedRoutingModule,
     BannerModule,
     TagsPopularModule,
+    FeedModule,
     FeedTogglerModule,
   ],
 })
-export class GlobalFeedModule {}
+export class TagFeedModule {}
