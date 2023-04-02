@@ -11,6 +11,8 @@ import {ArticleService as ArticleServiceShared} from 'src/app/shared/services/ar
 import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
 import {ErrorMessageModule} from 'src/app/shared/modules/error-message/error-message.module'
 import {TagListModule} from 'src/app/shared/modules/tag-list/tag-list.module'
+import {ArticleService} from 'src/app/article/services/article.service'
+import {DeleteArticleEffect} from 'src/app/article/store/effects/delete-article.effect'
 
 @NgModule({
   declarations: [ArticleComponent],
@@ -18,11 +20,11 @@ import {TagListModule} from 'src/app/shared/modules/tag-list/tag-list.module'
     CommonModule,
     ArticleRoutingModule,
     StoreModule.forFeature('article', ArticleReducer),
-    EffectsModule.forFeature([GetArticleEffect]),
+    EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
     LoadingModule,
     ErrorMessageModule,
     TagListModule,
   ],
-  providers: [ArticleServiceShared],
+  providers: [ArticleServiceShared, ArticleService],
 })
 export class ArticleModule {}

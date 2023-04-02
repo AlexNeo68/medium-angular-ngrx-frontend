@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core'
 import {ActivatedRoute, Params} from '@angular/router'
 import {select, Store} from '@ngrx/store'
 import {combineLatest, map, Observable, Subscription} from 'rxjs'
+import {DeleteArticleAction} from 'src/app/article/store/actions/delete-article.actions'
 import {GetArticleAction} from 'src/app/article/store/actions/get-article.actions'
 import {
   getArticleDataSelector,
@@ -66,5 +67,9 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   fetchData(): void {
     this.store.dispatch(GetArticleAction({slug: this.slug}))
+  }
+
+  deleteArticle(): void {
+    this.store.dispatch(DeleteArticleAction({slug: this.slug}))
   }
 }

@@ -18,6 +18,7 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
 import {YourFeedModule} from 'src/app/your-feed/your-feed.module'
 import {TagFeedModule} from 'src/app/tag-feed/tag-feed.module'
 import {ArticleModule} from 'src/app/article/article.module'
+import {ArticleNewModule} from 'src/app/article-new/article-new.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import {ArticleModule} from 'src/app/article/article.module'
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    ArticleNewModule,
     ArticleModule,
     StoreRouterConnectingModule.forRoot(),
   ],

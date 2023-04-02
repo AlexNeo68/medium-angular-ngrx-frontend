@@ -22,10 +22,15 @@
             [routerLink]="['/articles', article.slug, '/edit']"
             class="btn btn-outline-secondary btn-sm"
           >
-            <i class="ion-edit"></i>
             Edit Article
           </a>
-          DELETE BUTTON
+          <button
+            type="button"
+            (click)="deleteArticle()"
+            class="btn btn-danger btn-sm"
+          >
+            Delete
+          </button>
         </span>
       </div>
     </div>
