@@ -10,6 +10,9 @@ import { EffectsModule } from '@ngrx/effects'
 import { updateArticleReducer } from 'src/app/article-edit/store/reducers'
 import { UpdateArticleEffects } from 'src/app/article-edit/store/effects/update-article.effects'
 import { ArticleUpdateService } from 'src/app/article-edit/services/article-update.service'
+import { ArticleService as ArticleServiceShared } from 'src/app/shared/services/article.service'
+import { LoadingModule } from 'src/app/shared/modules/loading/loading.module'
+import { GetArticleEffects } from 'src/app/article-edit/store/effects/get-article.effects'
 
 
 @NgModule({
@@ -19,8 +22,9 @@ import { ArticleUpdateService } from 'src/app/article-edit/services/article-upda
     ArticleEditRoutingModule,
     ArticleFormModule,
     StoreModule.forFeature('updateArticle', updateArticleReducer),
-    EffectsModule.forFeature([UpdateArticleEffects]),
+    EffectsModule.forFeature([GetArticleEffects, UpdateArticleEffects]),
+    LoadingModule
   ],
-  providers: [ArticleUpdateService],
+  providers: [ArticleUpdateService, ArticleServiceShared],
 })
 export class ArticleEditModule { }

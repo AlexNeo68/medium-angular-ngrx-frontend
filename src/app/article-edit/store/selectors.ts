@@ -15,3 +15,13 @@ export const errorsUpdateArticleSelector = createSelector(
   updateArticleFeatureSelector,
   (state: UpdateArticleStateInterface) => state.validationErrors
 )
+
+export const isLoadingUpdateArticleSelector = createSelector(
+  updateArticleFeatureSelector,
+  (state: UpdateArticleStateInterface) => state.isLoading
+)
+
+export const articleUpdateArticleSelector = createSelector(
+  updateArticleFeatureSelector,
+  (state: UpdateArticleStateInterface) => state.article
+)

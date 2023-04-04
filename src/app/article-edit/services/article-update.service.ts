@@ -17,7 +17,7 @@ export class ArticleUpdateService {
   ): Observable<ArticleInterface> {
     const url = `${environment.apiUrl}/articles/${slug}`
     return this.httpClient
-      .patch<ArticleSaveResponseInterface>(url, { article: articleInput })
+      .put<ArticleSaveResponseInterface>(url, { article: articleInput })
       .pipe(map((response: ArticleSaveResponseInterface) => response.article))
   }
 }
