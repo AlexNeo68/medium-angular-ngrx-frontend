@@ -5,10 +5,12 @@ import { ArticleEditRoutingModule } from './article-edit-routing.module'
 import { ArticleEditComponent } from './components/article-edit/article-edit.component'
 import { ArticleFormModule } from 'src/app/shared/modules/article-form/article-form.module'
 import { StoreModule } from '@ngrx/store'
-import { createArticleReducer } from 'src/app/article-edit/store/reducers'
+
 import { EffectsModule } from '@ngrx/effects'
-import { CreateArticleEffects } from 'src/app/article-edit/store/effects/create-article.effects'
-import { ArticleEditService } from 'src/app/article-edit/services/article-edit.service'
+import { updateArticleReducer } from 'src/app/article-edit/store/reducers'
+import { UpdateArticleEffects } from 'src/app/article-edit/store/effects/update-article.effects'
+import { ArticleUpdateService } from 'src/app/article-edit/services/article-update.service'
+
 
 @NgModule({
   declarations: [ArticleEditComponent],
@@ -16,9 +18,9 @@ import { ArticleEditService } from 'src/app/article-edit/services/article-edit.s
     CommonModule,
     ArticleEditRoutingModule,
     ArticleFormModule,
-    StoreModule.forFeature('createArticle', createArticleReducer),
-    EffectsModule.forFeature([CreateArticleEffects]),
+    StoreModule.forFeature('updateArticle', updateArticleReducer),
+    EffectsModule.forFeature([UpdateArticleEffects]),
   ],
-  providers: [ArticleEditService],
+  providers: [ArticleUpdateService],
 })
 export class ArticleEditModule { }

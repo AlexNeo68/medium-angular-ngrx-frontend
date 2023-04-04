@@ -1,30 +1,30 @@
-import {createReducer, on} from '@ngrx/store'
-import {
-  createArticleAction,
-  createArticleFailureAction,
-  createArticleSuccessAction,
-} from 'src/app/article-new/store/actions/create-article.actions'
-import {CreateArticleStateInterface} from 'src/app/article-new/types/create-article.state.interface'
+import { createReducer, on } from '@ngrx/store'
+import { updateArticleAction, updateArticleFailureAction, updateArticleSuccessAction } from 'src/app/article-edit/store/actions/update-article.actions'
+import { UpdateArticleStateInterface } from 'src/app/article-edit/types/update-article.state.interface'
 
-const initialState: CreateArticleStateInterface = {
+
+
+const initialState: UpdateArticleStateInterface = {
   isSubmitting: false,
   validationErrors: null,
+  isLoading: false,
+  article: null
 }
 
-export const createArticleReducer = createReducer(
+export const updateArticleReducer = createReducer(
   initialState,
-  on(createArticleAction, (state: CreateArticleStateInterface) => ({
+  on(updateArticleAction, (state: UpdateArticleStateInterface) => ({
     ...state,
     isSubmitting: true,
     validationErrors: null,
   })),
-  on(createArticleSuccessAction, (state: CreateArticleStateInterface) => ({
+  on(updateArticleSuccessAction, (state: UpdateArticleStateInterface) => ({
     ...state,
     isSubmitting: false,
   })),
   on(
-    createArticleFailureAction,
-    (state: CreateArticleStateInterface, action) => ({
+    updateArticleFailureAction,
+    (state: UpdateArticleStateInterface, action) => ({
       ...state,
       isSubmitting: false,
       validationErrors: action.errors,

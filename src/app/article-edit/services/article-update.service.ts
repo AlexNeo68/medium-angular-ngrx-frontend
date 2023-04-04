@@ -8,7 +8,7 @@ import { ArticleInterface } from 'src/app/shared/types/article.interface'
 import { environment } from 'src/environments/environments.prod'
 
 @Injectable()
-export class ArticleEditService {
+export class ArticleUpdateService {
   constructor(private httpClient: HttpClient) { }
 
   updateArticle(

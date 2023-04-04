@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { createArticleAction } from 'src/app/article-edit/store/actions/create-article.actions'
-import {
-  errorsCreateArticleSelector,
-  isSubmittingCreateArticleSelector,
-} from 'src/app/article-edit/store/selectors'
+import { updateArticleAction } from 'src/app/article-edit/store/actions/update-article.actions'
+import { errorsUpdateArticleSelector, isSubmittingUpdateArticleSelector } from 'src/app/article-edit/store/selectors'
+
+
 import { ArticleInputInterface } from 'src/app/shared/types/article-input.interface'
 import { BackendErrorsInterface } from 'src/app/shared/types/backend-errors.interface'
 
@@ -21,6 +20,8 @@ export class ArticleEditComponent implements OnInit {
     description: '',
     tagList: [],
   }
+
+  slug: string = ''
   isSubmitting$: Observable<boolean>
   errors$: Observable<BackendErrorsInterface>
 
@@ -32,12 +33,12 @@ export class ArticleEditComponent implements OnInit {
 
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(
-      select(isSubmittingCreateArticleSelector)
+      select(isSubmittingUpdateArticleSelector)
     )
-    this.errors$ = this.store.pipe(select(errorsCreateArticleSelector))
+    this.errors$ = this.store.pipe(select(errorsUpdateArticleSelector))
   }
 
-  onCreateArticle(formValues: ArticleInputInterface) {
-    this.store.dispatch(createArticleAction({ articleInput: formValues }))
+  onUpdateArticle(formValues: ArticleInputInterface) {
+    this.store.dispatch(updateArticleAction({ slug: this.slug, articleInput: formValues }))
   }
 }

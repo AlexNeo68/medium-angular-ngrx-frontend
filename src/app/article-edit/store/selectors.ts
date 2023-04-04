@@ -1,16 +1,17 @@
-import {createSelector} from '@ngrx/store'
-import {CreateArticleStateInterface} from 'src/app/article-new/types/create-article.state.interface'
-import {AppStateInterface} from 'src/app/shared/types/app-state.interface'
+import { createSelector } from '@ngrx/store'
+import { UpdateArticleStateInterface } from 'src/app/article-edit/types/update-article.state.interface'
 
-export const createArticleFeatureSelector = (state: AppStateInterface) =>
-  state.createArticle
+import { AppStateInterface } from 'src/app/shared/types/app-state.interface'
 
-export const isSubmittingCreateArticleSelector = createSelector(
-  createArticleFeatureSelector,
-  (state: CreateArticleStateInterface) => state.isSubmitting
+export const updateArticleFeatureSelector = (state: AppStateInterface) =>
+  state.updateArticle
+
+export const isSubmittingUpdateArticleSelector = createSelector(
+  updateArticleFeatureSelector,
+  (state: UpdateArticleStateInterface) => state.isSubmitting
 )
 
-export const errorsCreateArticleSelector = createSelector(
-  createArticleFeatureSelector,
-  (state: CreateArticleStateInterface) => state.validationErrors
+export const errorsUpdateArticleSelector = createSelector(
+  updateArticleFeatureSelector,
+  (state: UpdateArticleStateInterface) => state.validationErrors
 )
