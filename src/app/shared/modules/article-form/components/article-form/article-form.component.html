@@ -45,7 +45,13 @@
         <label for="floatingTagList">Tag List</label>
       </div>
       <div class="form-buttons">
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button
+          class="btn btn-success"
+          type="submit"
+          [disabled]="isSubmittingProps"
+        >
+          Submit
+        </button>
       </div>
     </form>
   </div>

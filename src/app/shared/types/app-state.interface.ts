@@ -1,3 +1,4 @@
+import {CreateArticleStateInterface} from 'src/app/article-new/types/create-article.state.interface'
 import {AuthStateInterface} from 'src/app/auth/types/auth-state.interface'
 import {FeedStateInterface} from 'src/app/shared/modules/feed/types/feed-state.interface'
 import {TagsPopularStateInterface} from 'src/app/shared/modules/tags-popular/types/tags-popular-state.interface'
@@ -8,4 +9,5 @@ export interface AppStateInterface {
   feed: FeedStateInterface
   tagsPopular: TagsPopularStateInterface
   article: ArticleStateInterface
+  createArticle: CreateArticleStateInterface
 }
