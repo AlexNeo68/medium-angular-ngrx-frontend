@@ -1,0 +1,8 @@
+<div class="container">
+  <app-article-form
+    [isSubmitting]="isSubmitting$ | async"
+    [initialValues]="initialValues"
+    [errors]="errors$ | async"
+    (articleSave)="onCreateArticle($event)"
+  ></app-article-form>
+</div>
