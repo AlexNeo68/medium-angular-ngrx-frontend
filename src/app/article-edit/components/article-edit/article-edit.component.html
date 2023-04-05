@@ -1,4 +1,6 @@
 <div class="container">
-  <app-article-form [isSubmitting]="isSubmitting$ | async" [initialValues]="initialValues" [errors]="errors$ | async"
+  <app-loading *ngIf="isLoading$ | async"></app-loading>
+  <app-article-form *ngIf="initialValues$|async" [isSubmitting]="isSubmitting$ | async"
+    [initialValues]="initialValues$|async" [errors]="errors$ | async"
     (articleSave)="onUpdateArticle($event)"></app-article-form>
 </div>
