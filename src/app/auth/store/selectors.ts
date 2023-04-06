@@ -30,3 +30,8 @@ export const currentUserSelector = createSelector(
   authFeatureSelector,
   (state: AuthStateInterface) => state.currentUser
 )
+
+export const authIsLoadingSelector = createSelector(
+  authFeatureSelector,
+  (state: AuthStateInterface) => state.isLoading
+)

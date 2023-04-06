@@ -15,6 +15,7 @@ import {BackendErrorsModule} from 'src/app/shared/modules/backend-errors/backend
 import {PersistanceService} from 'src/app/shared/services/persistance.service'
 import {LoginEffect} from 'src/app/auth/store/effects/login.effect'
 import {GetCurrentUserEffect} from 'src/app/auth/store/effects/get-current-user.effect'
+import {UpdateCurrentUserEffect} from 'src/app/auth/store/effects/update-current-user.effect'
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, AuthComponent],
@@ -29,6 +30,7 @@ import {GetCurrentUserEffect} from 'src/app/auth/store/effects/get-current-user.
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
     ]),
   ],
   providers: [AuthService, PersistanceService],

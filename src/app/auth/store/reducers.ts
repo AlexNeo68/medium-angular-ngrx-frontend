@@ -8,11 +8,13 @@ import {
   loginActionSuccess,
   loginActionFailure,
 } from 'src/app/auth/store/actions/login.action'
+import {logoutAction} from 'src/app/auth/store/actions/logout.action'
 import {
   registerAction,
   registerActionFailure,
   registerActionSuccess,
 } from 'src/app/auth/store/actions/register.action'
+import {updateCurrentUserActionSuccess} from 'src/app/auth/store/actions/update-current-user.action'
 
 import {AuthStateInterface} from 'src/app/auth/types/auth-state.interface'
 
@@ -72,5 +74,17 @@ export const authReducer = createReducer(
   on(loginActionFailure, (state: AuthStateInterface) => ({
     ...state,
     isLoading: false,
+  })),
+
+  on(updateCurrentUserActionSuccess, (state: AuthStateInterface, action) => ({
+    ...state,
+    isLoading: false,
+    currentUser: action.currentUser,
+  })),
+
+  on(logoutAction, (state: AuthStateInterface) => ({
+    ...state,
+    isLoggedIn: false,
+    currentUser: null,
   }))
 )

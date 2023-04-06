@@ -1,1 +1,78 @@
-<p>settings works!</p>
+<div class="container">
+  <div class="row">
+    <h1 class="mb-2">Settings</h1>
+
+    <app-backend-errors
+      *ngIf="backendErrors$ | async"
+      [backendErrors]="backendErrors$ | async"
+    ></app-backend-errors>
+
+    <app-loading *ngIf="isLoadding$ | async"></app-loading>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <form [formGroup]="formSetting" (ngSubmit)="onSubmit()" class="mb-2">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingEmail"
+            placeholder="Type Email"
+            formControlName="email"
+          />
+          <label for="floatingEmail">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingusername"
+            placeholder="Type Username"
+            formControlName="username"
+          />
+          <label for="floatingusername">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control"
+            placeholder="Your Bio"
+            id="floatingBio"
+            formControlName="bio"
+          ></textarea>
+          <label for="floatingBio">Bio</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingImage"
+            placeholder="Type Image"
+            formControlName="image"
+          />
+          <label for="floatingImage">Image</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Type Password"
+            formControlName="password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="form-buttons">
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="isSubmitting$ | async"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+      <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+    </div>
+  </div>
+</div>
