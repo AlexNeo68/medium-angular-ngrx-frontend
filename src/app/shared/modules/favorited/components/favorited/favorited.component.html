@@ -1,0 +1,7 @@
+<button class="btn btn-outline-success" (click)="onFavorite()">
+  <i
+    class="bi bi-heart"
+    [ngClass]="{'bi-heart-fill': isFavorited, 'bi-heart': !isFavorited}"
+  ></i
+  ><small>{{ favoritesCount }}</small>
+</button>

@@ -29,7 +29,11 @@
             </div>
           </div>
           <div class="col-md-1">
-            <div class="feed-favorited">FAVORITED</div>
+            <app-favorited
+              [isFavorited]="article.favorited"
+              [favoritesCount]="article.favoritesCount"
+              [articleSlug]="article.slug"
+            ></app-favorited>
           </div>
         </div>
 
