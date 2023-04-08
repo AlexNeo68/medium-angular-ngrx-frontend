@@ -21,6 +21,7 @@ import {ArticleModule} from 'src/app/article/article.module'
 import {ArticleNewModule} from 'src/app/article-new/article-new.module'
 import {ArticleEditModule} from 'src/app/article-edit/article-edit.module'
 import {SettingsModule} from 'src/app/settings/settings.module'
+import {UserProfileModule} from 'src/app/user-profile/user-profile.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,6 +42,7 @@ import {SettingsModule} from 'src/app/settings/settings.module'
     ArticleEditModule,
     ArticleModule,
     SettingsModule,
+    UserProfileModule,
     StoreRouterConnectingModule.forRoot(),
   ],
   providers: [

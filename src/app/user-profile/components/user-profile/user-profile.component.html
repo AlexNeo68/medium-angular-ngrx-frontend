@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" *ngIf="userProfile">
+    <div class="col-md-12 text-center">
+      <div>
+        <img
+          [src]="userProfile.image"
+          [alt]="userProfile.username"
+          class="rounded"
+        />
+      </div>
+      <h1>{{ userProfile.username }}</h1>
+      <div class="text-right">
+        <button class="btn btn-outline-info">
+          {{ userProfile.following ? 'UnFollowing' : 'Following' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

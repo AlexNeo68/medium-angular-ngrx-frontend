@@ -5,6 +5,7 @@ import {SettingsStateInterface} from 'src/app/settings/types/settings-state.inte
 import {FeedStateInterface} from 'src/app/shared/modules/feed/types/feed-state.interface'
 import {TagsPopularStateInterface} from 'src/app/shared/modules/tags-popular/types/tags-popular-state.interface'
 import {ArticleStateInterface} from 'src/app/shared/types/article-state.interface'
+import {UserProfileStateInterface} from 'src/app/user-profile/types/user-profile-state.interface'
 
 export interface AppStateInterface {
   auth: AuthStateInterface
@@ -14,4 +15,5 @@ export interface AppStateInterface {
   createArticle: CreateArticleStateInterface
   updateArticle: UpdateArticleStateInterface
   settings: SettingsStateInterface
+  userProfile: UserProfileStateInterface
 }
