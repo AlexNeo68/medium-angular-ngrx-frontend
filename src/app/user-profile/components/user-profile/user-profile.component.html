@@ -9,11 +9,38 @@
         />
       </div>
       <h1>{{ userProfile.username }}</h1>
-      <div class="text-right">
+      <p>{{ userProfile.bio }}</p>
+      <div
+        class="text-right d-flex gap-2 justify-content-end mb-4 align-items-center"
+      >
         <button class="btn btn-outline-info">
           {{ userProfile.following ? 'UnFollowing' : 'Following' }}
         </button>
+        <div *ngIf="isCurrentUserProfile$ | async">
+          <a [routerLink]="['/settings']">Settings</a>
+        </div>
       </div>
     </div>
   </div>
+  <ul class="nav nav-pills mb-4">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLink]="['/profiles', slug]"
+        [routerLinkActiveOptions]="{exact: true}"
+        >Feed</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        [routerLink]="['/profiles', slug, 'favorites']"
+        >Favorites</a
+      >
+    </li>
+  </ul>
+  <app-feed [apiUrl]="getApiUrl()"></app-feed>
 </div>

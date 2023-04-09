@@ -10,6 +10,7 @@ import {UserProfileEffect} from 'src/app/user-profile/store/effects/get-profile.
 import {UserProfileService} from 'src/app/user-profile/services/user-profile.service'
 import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
 import {ErrorMessageModule} from 'src/app/shared/modules/error-message/error-message.module'
+import {FeedModule} from 'src/app/shared/modules/feed/feed.module'
 
 @NgModule({
   declarations: [UserProfileComponent],
@@ -20,6 +21,7 @@ import {ErrorMessageModule} from 'src/app/shared/modules/error-message/error-mes
     EffectsModule.forFeature([UserProfileEffect]),
     LoadingModule,
     ErrorMessageModule,
+    FeedModule,
   ],
   providers: [UserProfileService],
 })

@@ -31,7 +31,7 @@
           <li class="nav-item">
             <a
               class="nav-link"
-              [routerLink]="['/profile', (currentUser$ | async).username]"
+              [routerLink]="['/profiles', (currentUser$ | async).username]"
               ><img
                 [src]="(currentUser$ | async).image"
                 class="img-thumbnail"
